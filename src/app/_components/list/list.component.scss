@@ -1,0 +1,16 @@
+.grid-container{
+    width: 100%;
+    display: table;
+}
+.grid-row{
+    display: table-row;
+}
+.grid-item{
+    display: table-cell;
+}
+.page1{
+  background: #d3d3d3;
+}
+.page2{
+    background: rgb(158, 155, 155);
+}

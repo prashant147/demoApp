@@ -1,0 +1,23 @@
+<app-header ></app-header> 
+<div>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+            <div class="txtCenter">
+              <mat-form-field >
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="f.name">
+              </mat-form-field>
+            </div>
+            <div class="txtCenter">
+              <mat-form-field >
+                <mat-label>Job</mat-label> 
+                <input matInput type="text" formControlName="job">
+              </mat-form-field>
+            </div>
+            <div class="txtCenter">
+              <button mat-button color="primary" [disabled]="!form.valid" >Add</button>
+            </div>
+          </form>
+
+</div>
+<app-footer></app-footer>

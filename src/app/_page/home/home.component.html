@@ -1,0 +1,17 @@
+<app-header [(search)]="searchVal"  [isSearch]=true></app-header> 
+<div>
+        
+    <span *ngIf="searchVal.key">
+        <span>Filter By:</span><span>{{searchVal.key}}</span>
+        <mat-icon aria-hidden="false" (click)="onclick_Clear()" >close</mat-icon>
+    </span>
+    <span class="addIcon">
+        <a routerLink="/home/add">
+            <mat-icon aria-hidden="false" >home</mat-icon>
+        </a>
+    </span>
+    <div *ngIf="userData">
+        <app-list *ngFor="let user of userData|filter:searchVal.key"  [userData]="user" (onEvent)="onClick_user($event)"></app-list>
+    </div>
+</div>
+<app-footer></app-footer> 

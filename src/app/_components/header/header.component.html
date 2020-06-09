@@ -1,0 +1,9 @@
+<div class="headerCls">
+  header works! 
+  <div *ngIf="isSearch">
+    <mat-form-field >
+        <input matInput  type="text" [(ngModel)]="_search.key"  placeholder="Search Text" >
+    </mat-form-field>
+  </div>
+</div> 
+
