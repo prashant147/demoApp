@@ -18,17 +18,25 @@ export class HomeComponent implements OnInit {
     this.loadUserData();
   } 
   loadUserData(){  
-    var obj = this;
-    obj._service.users(this.pageNo).subscribe(function(res){
+    //var obj = ;
+    this._service.users(this.pageNo).subscribe((res)=>{
        if(res.success){
-        obj.userData = res.data;
-        obj.userTotal = res.total;
+        this.userData = res.data;
+        this.userTotal = res.total;
        }
        
     });
   }
-  onClick_user(e){
-    console.log(e);
+  onDeleteUser(event:User){
+   this._service.deleteUser(event.id).subscribe(
+     res=>{
+       if(res.success){
+         alert("successfully deleted");
+       }else{
+        alert("error occurred, please try again!");
+       }
+     }
+   )
   }
   onclick_Clear(){
     this.searchVal.key = "";

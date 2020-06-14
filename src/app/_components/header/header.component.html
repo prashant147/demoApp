@@ -1,9 +1,18 @@
 <div class="headerCls">
-  header works! 
-  <div *ngIf="isSearch">
-    <mat-form-field >
-        <input matInput  type="text" [(ngModel)]="_search.key"  placeholder="Search Text" >
-    </mat-form-field>
-  </div>
+ <div class="row m-0">
+   <div class="col-sm-8">
+    <div *ngIf="isSearch">
+      <mat-form-field >
+          <input matInput  type="text" [(ngModel)]="_search.key"  placeholder="Search Text" >
+      </mat-form-field>
+    </div>
+   </div>
+   <div class="col-sm-4 text-right">
+    <button class="" (click)="logout()"> 
+      logout
+    </button>
+   </div>
+ </div>
+   
 </div> 
 

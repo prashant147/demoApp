@@ -25,4 +25,12 @@ export class ApiService {
       })
     );
   }
+
+  delete(url){
+    return this.http.delete<any>(url).pipe( 
+      map(res => {  
+         return res;
+      })
+    );
+  }
 }

@@ -11,13 +11,14 @@ import { UserService} from '../../../service/user.service';
 export class AddStudentComponent implements OnInit {
   public form: FormGroup;
   constructor(public fb: FormBuilder,private route: ActivatedRoute,public router: Router,public _service:UserService) { 
-    this.form = fb.group({
-      'name': ['', Validators.compose([Validators.required])],
-      'job': ['', Validators.compose([Validators.required])],
-    });
+   
   }
   get f() { return this.form.controls; }
-  ngOnInit(): void {
+  ngOnInit() {
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      job: ['', [Validators.required]],
+    });
   }
   onSubmit(value){
     var obj = this;

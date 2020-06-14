@@ -14,7 +14,7 @@ export class UserService {
     return this.api.post(environment.urls.auth.login(), val).pipe( 
       map(res => {  
           if (res.token) {
-            sessionStorage.setItem("token",res.token);
+            localStorage.setItem("token",res.token);
               return { success: true, message: res.token };
           } else {
               return { success: false, message: "User not found" };
@@ -35,6 +35,18 @@ export class UserService {
   }
   add(val): Observable<any> {
     return this.api.post(environment.urls.users.list(), val).pipe( 
+      map(res => {  
+          if (res) {
+              return { success: true, message: res };
+          } else {
+              return { success: false, message: "Try agin" };
+          }
+      })
+    );
+  }
+
+  deleteUser(id){
+    return this.api.delete(environment.urls.users.list()+ '/' +id).pipe( 
       map(res => {  
           if (res) {
               return { success: true, message: res };

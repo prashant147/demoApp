@@ -16,5 +16,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  delete(userData){
+    this.onEventReq.emit(userData)
+  }
 }

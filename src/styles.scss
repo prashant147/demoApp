@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 html, body { height: 100%; }
 body { background-color: #eee;
@@ -7,3 +8,18 @@ body { background-color: #eee;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.pull-right{
+    float: right;
+}
+
+    .form-section{
+        max-width: 400px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    .row {
+        .mat-form-field{
+            width: 100%;
+            }
+    }
