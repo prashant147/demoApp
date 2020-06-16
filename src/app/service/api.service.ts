@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,8 @@ export class ApiService {
     return this.http.post<any>(url, val).pipe( 
       map(res => {  
          return res;
-      })
+      }),
+      catchError(this.handleError)
     );
   }
 
@@ -32,5 +32,8 @@ export class ApiService {
          return res;
       })
     );
+  }
+  handleError(e):any{
+    console.log(e);
   }
 }
