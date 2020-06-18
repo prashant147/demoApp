@@ -12,7 +12,7 @@ export class DemoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    alert(this.var2);
+    // alert(this.var2);
   }
 
 }
