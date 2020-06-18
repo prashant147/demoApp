@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(public fb: FormBuilder,private route: ActivatedRoute,public router: Router,public _service:UserService) { 
     this.form = fb.group({
-      'email': ['eve.holt@reqres.in', Validators.compose([Validators.required, Validators.email])],
-      'password': ['cityslicka', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'email': ['eve.holt@reqres.in', [Validators.required, Validators.email]],
+      'password': ['cityslicka', [Validators.required, Validators.minLength(4)]],
     });
   }
 
@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
   onSubmit(value){
-    var obj = this;
+   
     
-    obj._service.login(value).subscribe(function(data){
+    this._service.login(value).subscribe((data)=>{
       if(data.success){
-        obj.router.navigate(['./home']);
+        this.router.navigate(['/home']);
       }else{
         alert(data.message);
       }

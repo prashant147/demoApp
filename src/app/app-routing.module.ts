@@ -14,7 +14,12 @@ const routes: Routes = [{
 {
   path: 'home',canActivate:[AuthGuard],
   loadChildren: () => import('./_page/home/home.module').then( m => m.HomeModule)
-}];
+},
+{
+  path: 'demo',
+  loadChildren: () => import('./_page/demo/demo.module').then( m => m.DemoModule)
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter,ViewChild } from '@angular/core';
-import { UserService,User} from '../../service/user.service';
+import { UserService,User} from '../../../service/user.service';
 
 @Component({
   selector: 'app-list',

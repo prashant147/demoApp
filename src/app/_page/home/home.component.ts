@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   public userData:User[]=null;
   public userTotal:User=null;
   public searchVal:any = { "key":""} ;
+  private test ='test'
   constructor(public router: Router,public _service:UserService) { }
 
   ngOnInit(): void {
