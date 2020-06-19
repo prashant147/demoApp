@@ -3,58 +3,69 @@ import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiService } from '../service/api.service';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { AlertComponent } from '../shared/components/alert/alert.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public _dialog: MatDialog) {}
   login(val): Observable<any> {
-    return this.api.post(environment.urls.auth.login(), val).pipe( 
-      map(res => {  
-          if (res.token) {
-            localStorage.setItem("token",res.token);
-              return { success: true, message: res.token };
-          } else {
-              return { success: false, message: "User not found" };
-          }
+    return this.api.post(environment.urls.auth.login(), val).pipe(
+      map((res) => {
+        if (res.token) {
+          localStorage.setItem('token', res.token);
+          return { success: true, message: res.token };
+        } else {
+          return { success: false, message: 'User not found' };
+        }
       })
     );
   }
   users(pageNo): Observable<any> {
-    return this.api.get(environment.urls.users.list()+"?page="+pageNo).pipe( 
-      map(res => {  
-          if (res.data) {
-              return { success: true, data: res.data, total: res.total};
-          } else {
-              return null;
-          }
+    return this.api.get(environment.urls.users.list() + '?page=' + pageNo).pipe(
+      map((res) => {
+        if (res.data) {
+          return { success: true, data: res.data, total: res.total };
+        } else {
+          return null;
+        }
       })
     );
   }
   add(val): Observable<any> {
-    return this.api.post(environment.urls.users.list(), val).pipe( 
-      map(res => {  
-          if (res) {
-              return { success: true, message: res };
-          } else {
-              return { success: false, message: "Try agin" };
-          }
+    return this.api.post(environment.urls.users.list(), val).pipe(
+      map((res) => {
+        if (res) {
+          return { success: true, message: res };
+        } else {
+          return { success: false, message: 'Try agin' };
+        }
       })
     );
   }
 
-  deleteUser(id){
-    return this.api.delete(environment.urls.users.list()+ '/' +id).pipe( 
-      map(res => {  
-          if (res) {
-              return { success: true, message: res };
-          } else {
-              return { success: false, message: "Try agin" };
-          }
+  deleteUser(id) {
+    return this.api.delete(environment.urls.users.list() + '/' + id).pipe(
+      map((res) => {
+        if (res) {
+          return { success: true, message: res };
+        } else {
+          return { success: false, message: 'Try agin' };
+        }
       })
     );
+  }
+
+  showAlert(message: string) {
+    this._dialog.open(AlertComponent, {
+      data: { message: message },
+    });
   }
 }
 
@@ -66,15 +77,15 @@ export class User {
   avatar?: string;
 
   constructor(ini: UserInput) {
-      this.updateWith(ini);
+    this.updateWith(ini);
   }
 
   updateWith(ini: UserInput) {
-      if (ini.id) {
-          this.id = ini.id;
-      }
-      if (ini.email) {
-        this.email = ini.email;
+    if (ini.id) {
+      this.id = ini.id;
+    }
+    if (ini.email) {
+      this.email = ini.email;
     }
     if (ini.first_name) {
       this.first_name = ini.first_name;
@@ -85,13 +96,13 @@ export class User {
   }
 
   toIni(): UserInput {
-      return {
-        id: this.id,
-        email: this.email,
-        first_name: this.first_name,
-        last_name: this.last_name,
-        avatar: this.avatar
-      };
+    return {
+      id: this.id,
+      email: this.email,
+      first_name: this.first_name,
+      last_name: this.last_name,
+      avatar: this.avatar,
+    };
   }
 }
 interface UserInput {
