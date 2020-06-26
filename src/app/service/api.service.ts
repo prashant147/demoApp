@@ -9,6 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
+  //crud
   post(url,val){
     return this.http.post<any>(url, val).pipe( 
       map(res => {  
@@ -26,6 +27,13 @@ export class ApiService {
     );
   }
 
+  put(url,data){
+    return this.http.put<any>(url,data).pipe( 
+      map(res => {  
+         return res;
+      })
+    );
+  }
   delete(url){
     return this.http.delete<any>(url).pipe( 
       map(res => {  

@@ -1,12 +1,12 @@
 
 <div class="grid-container">
-    <div class="grid-row" [ngClass]="{'page1':(userData.id % 2) == 1,'page2':(userData.id % 2 ) == 0}">
+    <div class="grid-row" [ngClass]="{'page1':(userData && userData.id % 2) == 1,'page2':(userData && userData.id % 2 ) == 0}">
         <span class="grid-item" style="width: 100px;">
-            <img src="{{userData.avatar}}" style="width: 100px;" />
+            <img src="{{userData? userData.avatar : null}}" style="width: 100px;" />
         </span>
-        <span class="grid-item" >{{userData.first_name}}</span>
-        <span class="grid-item">{{userData.last_name}}</span> 
-        <span class="grid-item">{{userData.email}}</span>
+        <span class="grid-item" >{{userData?.first_name}}</span>
+        <span class="grid-item">{{userData?.last_name}}</span> 
+        <span class="grid-item">{{userData?.email}}</span>
         <span class="grid-item" (click)="delete(userData)">Delete</span>
     </div>
 </div>

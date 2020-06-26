@@ -23,3 +23,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
             width: 100%;
             }
     }
+
+
+   .navbar-nav{
+flex-direction: row;
+.active{
+    background-color: #7fb6c7;
+    color: #fff;
+}
+    }

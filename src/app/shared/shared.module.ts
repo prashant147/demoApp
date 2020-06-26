@@ -14,6 +14,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { AlertComponent } from './components/alert/alert.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CustomDirective } from './directives/custom.directive';
+import { DemoService } from './services/demo.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { CustomDirective } from './directives/custom.directive';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    
   ],
   entryComponents: [AlertComponent],
   imports: [
@@ -49,6 +52,10 @@ import { CustomDirective } from './directives/custom.directive';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
+  providers:[
+    
+  ]
 })
 export class SharedModule {}

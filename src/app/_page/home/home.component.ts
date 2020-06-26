@@ -11,9 +11,17 @@ export class HomeComponent implements OnInit {
   public pageNo = 1;
   public userData:User[]=null;
   public userTotal:User=null;
+
   public searchVal:any = { "key":""} ;
+  
   private test ='test'
-  constructor(public router: Router,public _service:UserService) { }
+  constructor(public router: Router,public _service:UserService) {
+    this._service.eventStream$.subscribe(
+      (res)=>{
+        console.log(res);
+      }
+    )
+   }
 
   ngOnInit(): void {
     this.loadUserData();
@@ -27,6 +35,8 @@ export class HomeComponent implements OnInit {
        }
        
     });
+
+    //jhf
   }
   onDeleteUser(event:User){
    this._service.deleteUser(event.id).subscribe(

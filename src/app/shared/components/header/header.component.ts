@@ -12,7 +12,9 @@ export class HeaderComponent implements OnInit {
   
   @Input() isSearch:boolean = false;
 
-  @Input("search") _search ;
+  @Input("search") _search = {
+    key:''
+  } ;
   constructor(private _router:Router) { }
 
   ngOnInit(): void {

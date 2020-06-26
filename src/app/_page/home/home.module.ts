@@ -8,9 +8,10 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { ListComponent } from './list/list.component';
+import { HomeIndexComponent } from './home-index/home-index.component';
 
 @NgModule({
-  declarations: [HomeComponent, AddStudentComponent,ListComponent],
+  declarations: [HomeComponent, AddStudentComponent,ListComponent, HomeIndexComponent],
   imports: [
     CommonModule,
     SharedModule, 

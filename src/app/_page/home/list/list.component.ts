@@ -7,9 +7,13 @@ import { UserService,User} from '../../../service/user.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input("userData") userData: User;
+
+  //@Input("userData") user: User;
+
+  @Input() userData: User;
+  
   @Output() onEventReq: EventEmitter<any> = new EventEmitter<any>();
-  constructor() { 
+  constructor(private _user:UserService) { 
 
   }
 
@@ -17,6 +21,8 @@ export class ListComponent implements OnInit {
 
   }
   delete(userData){
-    this.onEventReq.emit(userData)
+   // this.onEventReq.emit(userData)
+
+   this._user.eventStream.next(userData)
   }
 }

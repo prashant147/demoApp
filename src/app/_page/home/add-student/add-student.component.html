@@ -1,25 +1,53 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <div class="container-fluid text-center">
+
+  <button class="btn btn-sm btn-primary"(click)="addcontrol()" >add control</button>
 
   <form [formGroup]="form" class="form-section form-horizontal" (ngSubmit)="onSubmit(form.value)" >
     <div class="row">
       <div class="col-sm-12">
         <mat-form-field>
           <mat-label>Name</mat-label>
-          <input matInput type="text" [formControl]="f.name">
+          <input matInput type="text" [formControl]="f.name" >
         </mat-form-field>
+        <mat-error *ngIf="!f.valid && (f.name.dirty ||  f.name.touched )&& f.name.errors?.required">
+          name required
+        </mat-error>
       </div>
+
       <div class="col-sm-12">
         <mat-form-field>
           <mat-label>Job</mat-label>
-          <input matInput type="text" formControlName="job">
+          <input matInput type="text" formControlName="job" >
+          <mat-error *ngIf="!f.valid && (f.job.dirty ||  f.job.touched )&& f.job.errors?.pattern">
+           pattern mismatched
+          </mat-error>
+          <mat-error *ngIf="!f.valid && (f.job.dirty ||  f.job.touched )&& f.job.errors?.required">
+           job required
+           </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-12" formGroupName="address">
+        <p>Address:</p>
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput type="text" formControlName="street">
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-12" *ngIf="f.new">
+       
+        <mat-form-field>
+          <mat-label>new</mat-label>
+          <input matInput type="text" formControlName="new">
         </mat-form-field>
       </div>
       <div class="col-sm-12">
-        <button mat-button color="primary" [disabled]="!form.valid">Add</button>
+        <button mat-button color="primary" type="submit" [disabled]="!form.valid">Add</button>
       </div>
     </div>
   </form>
 
 </div>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

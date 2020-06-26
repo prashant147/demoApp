@@ -1,18 +1,31 @@
 <div class="headerCls">
- <div class="row m-0">
-   <div class="col-sm-8">
-    <div *ngIf="isSearch">
-      <mat-form-field >
-          <input matInput  autocomplete="off" type="text" [(ngModel)]="_search.key"  placeholder="Search Text" >
-      </mat-form-field>
-    </div>
-   </div>
-   <div class="col-sm-4 text-right">
-    <button class="" (click)="logout()"> 
-      logout
-    </button>
-   </div>
- </div>
-   
-</div> 
+  <div class="row m-0">
+    <div class="col-sm-5">
+      <nav lass="navbar navbar-expand-lg navbar-light">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item p-2">
+            <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active" >home</a>
+          </li>
+          <li class="nav-item p-2">
+            <a class="nav-link"  routerLink="/demo" [queryParams]="{child: 'one'}" routerLinkActive="active" >demo</a>
+          </li>
+        </ul>
 
+
+      </nav>
+    </div>
+    <div class="col-sm-3">
+      <div *ngIf="isSearch">
+        <mat-form-field>
+          <input matInput autocomplete="off" type="text" [(ngModel)]="_search.key" placeholder="Search Text">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-4 text-right">
+      <button class="" (click)="logout()">
+        logout
+      </button>
+    </div>
+  </div>
+
+</div>

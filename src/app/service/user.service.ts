@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, BehaviorSubject, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiService } from '../service/api.service';
@@ -14,7 +14,12 @@ import { AlertComponent } from '../shared/components/alert/alert.component';
   providedIn: 'root',
 })
 export class UserService {
+  public eventStream = new BehaviorSubject('stream');
+   public eventStream$ = this.eventStream.asObservable();
+
   constructor(private api: ApiService, public _dialog: MatDialog) {}
+
+  // login api
   login(val): Observable<any> {
     return this.api.post(environment.urls.auth.login(), val).pipe(
       map((res) => {
@@ -27,6 +32,7 @@ export class UserService {
       })
     );
   }
+
   users(pageNo): Observable<any> {
     return this.api.get(environment.urls.users.list() + '?page=' + pageNo).pipe(
       map((res) => {
@@ -37,7 +43,10 @@ export class UserService {
         }
       })
     );
+    // // page =1
+   // return of({ success: true, data: userData, total: 12})
   }
+
   add(val): Observable<any> {
     return this.api.post(environment.urls.users.list(), val).pipe(
       map((res) => {
@@ -112,3 +121,52 @@ interface UserInput {
   last_name?: string;
   avatar?: string;
 }
+
+export const userData: UserInput[] = [
+  {
+    id: 1,
+    email: 'george.bluth@reqres.in',
+    first_name: 'George',
+    last_name: 'Bluth',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg',
+  },
+  {
+    id: 2,
+    email: 'janet.weaver@reqres.in',
+    first_name: 'Janet',
+    last_name: 'Weaver',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg',
+  },
+  {
+    id: 3,
+    email: 'emma.wong@reqres.in',
+    first_name: 'Emma',
+    last_name: 'Wong',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg',
+  },
+  {
+    id: 4,
+    email: 'eve.holt@reqres.in',
+    first_name: 'Eve',
+    last_name: 'Holt',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg',
+  },
+  {
+    id: 5,
+    email: 'charles.morris@reqres.in',
+    first_name: 'Charles',
+    last_name: 'Morris',
+    avatar:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/stephenmoon/128.jpg',
+  },
+  {
+    id: 6,
+    email: 'tracey.ramos@reqres.in',
+    first_name: 'Tracey',
+    last_name: 'Ramos',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/128.jpg',
+  },
+];
