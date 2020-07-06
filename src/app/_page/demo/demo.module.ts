@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { DemoChildComponent } from './demo-child/demo-child.component';
 import { DemoService } from 'src/app/shared/services/demo.service';
+import { MatDropdownModule } from 'ngx-mat-dropdown';
 
 
 
@@ -14,7 +15,7 @@ import { DemoService } from 'src/app/shared/services/demo.service';
   imports: [
     CommonModule,FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    SharedModule,MatDropdownModule,
     RouterModule.forChild([{
       path:'',component:DemoComponent
     }])

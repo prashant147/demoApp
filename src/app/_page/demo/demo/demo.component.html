@@ -1,28 +1,36 @@
 <div class="container pt-1">
     <div class="row">
 
-<div class="col-sm-12">
-    <button class="btn btn-sm btn-secondary" #btnRef >bummy</button>
-    <button class="btn btn-sm btn-secondary" (click)="child.emit(1)" #btnRef >click emit</button>
-</div>
-<div class="col-sm-12">
-    <app-demo-child [item]="3" #child (emitText)="emitted($event,3,1)" (emitText2)="emitted2($event,3,2)"></app-demo-child>
-    
-</div>
-
-        
         <div class="col-sm-12">
-            
-            <input type="file" #fileInput style="display: none;"  (change)="onFileuload($event)"/>
-            
-            <button class="btn btn-sm btn-primary" (click)="fileInput.click()" >upload</button>
+            {{selected |json}}
+            <ngx-mat-dropdown [appearance]="'legacy'" [dropdownSettings]="setDropdownSettings('userList-id',false,'users','name','id','name')"
+            [dropdownList]="userList" [selectedItems]="selected" (onselectItems)="selected = $event.value"></ngx-mat-dropdown>
         </div>
-        
-        
-        
-        
-        
-        
+
+        <div class="col-sm-12">
+
+            {{multiSelected |json}}
+            <ngx-mat-dropdown [appearance]="'outline'" [dropdownSettings]="setDropdownSettings('userList-id',true,'User Data','name','id','name')"
+            [dropdownList]="userList" [selectedItems]="multiSelected" (onselectItems)="multiSelected = $event.value"></ngx-mat-dropdown>
+        </div>
+
+        <!-- <div class="col-sm-12">
+            <button class="btn btn-sm btn-secondary" #btnRef>bummy</button>
+            <button class="btn btn-sm btn-secondary" (click)="child.emit(1)" #btnRef>click emit</button>
+        </div>
+        <div class="col-sm-12">
+            <app-demo-child [item]="3" #child (emitText)="emitted($event,3,1)" (emitText2)="emitted2($event,3,2)">
+            </app-demo-child>
+
+        </div>
+
+
+        <div class="col-sm-12">
+
+            <input type="file" #fileInput style="display: none;" (change)="onFileuload($event)" />
+
+            <button class="btn btn-sm btn-primary" (click)="fileInput.click()">upload</button>
+        </div> -->
         <!-- <div class="col-sm-12">
             name:
             <input  type="text" [formControl]="ctrl">
@@ -30,25 +38,6 @@
                 control is invalid  
             </span>
         </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- <p >{{var1}}</p> -->
         <!-- <app-demo></app-demo> -->
@@ -72,20 +61,20 @@
             <p> dd-MM-yyyy:  {{dt | date:'dd-MM-yyyy'}}</p>
     
         </div> -->
-
+<!-- 
         <div class="col-sm-12" *ngFor="let item of dummyArr">
-            <!-- <div *ngIf="(item%2)==0 "> {{item}}even</div>
-            <div *ngIf="(item%2)!=0 ">{{item}} odd</div> -->
-            <!-- <app-demo-child [item]="item" (emitText)="emitted($event,item,1)" (emitText2)="emitted2($event,item,2)"></app-demo-child> -->
+            <div *ngIf="(item%2)==0 "> {{item}}even</div>
+            <div *ngIf="(item%2)!=0 ">{{item}} odd</div>
+            <app-demo-child [item]="item" (emitText)="emitted($event,item,1)" (emitText2)="emitted2($event,item,2)"></app-demo-child>
 
-            <!-- <div [ngSwitch]="(item%2)">
+            <div [ngSwitch]="(item%2)">
                 <div *ngSwitchCase="even">{{item}}even</div>
                 <div *ngSwitchCase="odd">{{item}}odd</div>
-            </div> -->
-        </div>
+            </div>
+        </div> -->
 
 
     </div>
-   
+
 
 </div>
