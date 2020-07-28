@@ -1,14 +1,20 @@
-<div class="container pt-1">
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-sm-12">
+            <app-demo-child></app-demo-child>
+        </div>
+    </div>
     <div class="row">
 
-        <div class="col-sm-12">
+        <div class="col-sm-6">
+            <p>ngx mat dropdown with single selection </p>
             {{selected |json}}
             <ngx-mat-dropdown [appearance]="'legacy'" [dropdownSettings]="setDropdownSettings('userList-id',false,'users','name','id','name')"
             [dropdownList]="userList" [selectedItems]="selected" (onselectItems)="selected = $event.value"></ngx-mat-dropdown>
         </div>
 
-        <div class="col-sm-12">
-
+        <div class="col-sm-6">
+            <p>ngx mat dropdown with multi selection </p>
             {{multiSelected |json}}
             <ngx-mat-dropdown [appearance]="'outline'" [dropdownSettings]="setDropdownSettings('userList-id',true,'User Data','name','id','name')"
             [dropdownList]="userList" [selectedItems]="multiSelected" (onselectItems)="multiSelected = $event.value"></ngx-mat-dropdown>

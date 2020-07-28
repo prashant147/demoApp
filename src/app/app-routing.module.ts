@@ -13,12 +13,16 @@ const routes: Routes = [
   loadChildren: () => import('./_page/home/home.module').then( m => m.HomeModule)
 },
 {
+  path: 'events',
+  loadChildren: () => import('./_page/events/events.module').then( m => m.EventsModule)
+},
+{
   path: 'demo',
   loadChildren: () => import('./_page/demo/demo.module').then( m => m.DemoModule)
 },
 {
   path: '',
-  redirectTo: 'demo',
+  redirectTo: 'events',
   pathMatch: 'full'
 },
 {

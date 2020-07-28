@@ -1,14 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ColumnOptionsModel, GridService, PaginationModel } from '@xeeva-npm-lib/ui-ang-lib/super-grid';
-//import {  } from 'protractor';
 
 @Component({
-  selector: 'app-demo-child',
-  templateUrl: './demo-child.component.html',
-  styleUrls: ['./demo-child.component.scss']
+  selector: 'app-events-dashboard',
+  templateUrl: './events-dashboard.component.html',
+  styleUrls: ['./events-dashboard.component.scss']
 })
-export class DemoChildComponent implements OnInit {
+export class EventsDashboardComponent implements OnInit {
 
+ 
   itemsPerPage=10;
   totalItems: number = 30;
   CurrentPage: number =1;
@@ -246,3 +246,4 @@ export const dummyData= [
 
 
 ]
+

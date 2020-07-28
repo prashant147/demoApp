@@ -1,7 +1,13 @@
+<xva-super-grid [gridData]="renderedData" [colsList]="allColumns" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage"
+  [currentPage]="CurrentPage" (pageChange)="pageChanged($event)" (download)="DownloadCsv()"
+  (rowClicked)="onRowClicked($event)" (rowSelected)="onRowSelected($event)"
+  [resizableColumns]="true" [reorderColumns]="true" [showHideColumns]=true [rowSelection]="true"
+  [sorting]="true" [iconsTemplate]="iconsTemplate" 
+  [class]="'data-grid'"
+  > 
 
-
-<p>Child: {{data}} </p>
-<input [(ngModel)]="textData" />
-
-<button class="btn btn-sm btn-primary" (click)="emit(1)">emit</button>
-<button class="btn btn-sm btn-primary" (click)="emit(2)">emit2</button>
+  <ng-template #iconsTemplate >
+    <i class="fa fa-commenting-o pr-1" (click)="onComments()"></i>
+    <i class="fa fa-paperclip" ></i>
+  </ng-template>
+</xva-super-grid>

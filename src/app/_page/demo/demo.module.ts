@@ -7,8 +7,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { DemoChildComponent } from './demo-child/demo-child.component';
 import { DemoService } from 'src/app/shared/services/demo.service';
 import { MatDropdownModule } from 'ngx-mat-dropdown';
-
-
+import { SuperGridModule } from '@xeeva-npm-lib/ui-ang-lib/super-grid';
 
 @NgModule({
   declarations: [DemoComponent, DemoChildComponent],
@@ -16,6 +15,7 @@ import { MatDropdownModule } from 'ngx-mat-dropdown';
     CommonModule,FormsModule,
     ReactiveFormsModule,
     SharedModule,MatDropdownModule,
+    SuperGridModule,
     RouterModule.forChild([{
       path:'',component:DemoComponent
     }])

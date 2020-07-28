@@ -1,34 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
-body { background-color: #eee;
-    color: #3c4858;
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.pull-right{
-    float: right;
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #eee;
+  color: #3c4858;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
 }
 
-    .form-section{
-        max-width: 400px;
-        margin: 0 auto;
-        padding-top: 10px;
-    }
-    .row {
-        .mat-form-field{
-            width: 100%;
-            }
-    }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+.pull-right {
+  float: right;
+}
 
-   .navbar-nav{
-flex-direction: row;
-.active{
+.form-section {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.row {
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.navbar-nav {
+  flex-direction: row;
+  .active {
     background-color: #7fb6c7;
     color: #fff;
+  }
 }
-    }
